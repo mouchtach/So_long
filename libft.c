@@ -6,20 +6,21 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 05:25:28 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/22 05:28:22 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:22:33 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_strcmp(char *s1,char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (s1[i])
+	if(!s1 || !s2)
+		return (0);
+	while (s1[i] || s2[i])
 	{
-        write(1, &s1[i] , 1);
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
 		i++;

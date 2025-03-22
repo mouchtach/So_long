@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/22 05:33:00 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:31:56 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,15 @@ void    parsing_arry(char **map,int  count);
 
 
 // libft 
-int  ft_strcmp(char *s1,char *s2);
+int  ft_strcmp(char *s1, char *s2);
 
 // name check
-void  check_name(char *name);
+int   check_name(char *name);
 
 //get_next_line 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1100
 # endif
-
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
 int     ft_strlen(const char *s);
