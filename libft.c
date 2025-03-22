@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 20:01:06 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/22 05:53:03 by ymouchta         ###   ########.fr       */
+/*   Created: 2025/03/22 05:25:28 by ymouchta          #+#    #+#             */
+/*   Updated: 2025/03/22 05:28:22 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int argc, char **argv)
+int	ft_strcmp(char *s1,char *s2)
 {
-    int map;
-    int count;
-    char **map_array;
+	int	i;
 
-    if (argc != 2)
-        return (0);
-    check_name(argv[1]);
-    map = open(argv[1], O_RDONLY, 0777);
-    if (!map)
-        printf("file not exist \n");
-    count = count_lines(map);
-    close (map);
-    map = open("map.ber", O_RDONLY, 0777);
-    map_array = read_map(map, count);
-    parsing_arry(map_array, count);
-
+	i = 0;
+	while (s1[i])
+	{
+        write(1, &s1[i] , 1);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
 }

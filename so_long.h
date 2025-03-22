@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/22 01:16:43 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/22 05:33:00 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,14 @@ int     shape_check(char **map);
 int     wal_check(char **map,int  count);
 int     valid_characters(char **map);
 int     elements_check(char **map);
-void parsing_arry(char **map,int  count);
+void    parsing_arry(char **map,int  count);
 
 
+// libft 
+int  ft_strcmp(char *s1,char *s2);
 
-
+// name check
+void  check_name(char *name);
 
 //get_next_line 
 # ifndef BUFFER_SIZE

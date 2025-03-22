@@ -1,6 +1,6 @@
 NAME = so_long
 
-SOURCES  = get_next_line.c get_next_line_utils.c read.c so_long.c parsing.c
+SOURCES  = get_next_line.c get_next_line_utils.c read.c so_long.c parsing.c libft.c check_name.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -10,10 +10,10 @@ CC = cc
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
 %.o: %.c so_long.h map.ber
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
 	@rm -rf $(OBJECTS) $(BOBJECTS)
