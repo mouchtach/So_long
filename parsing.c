@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:42:12 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/22 01:28:02 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/23 21:41:55 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,21 +132,22 @@ int elements_check(char **map)
         return(0);
 }
 
-void parsing_arry(char **map,int  count)
+int parsing_arry(char **map,int  count)
 {
     if (shape_check(map))
     {
         printf("Eroor in shape\n");
-        exit(1);
+        return(0);
     }
     if (wal_check(map, count))
     {
         printf("Eroor in  walls\n");
-        exit(1);
+        return(0);
     }
     if (elements_check(map)|| valid_characters(map))
     {
         printf("Eroor in  elements\n");
-        exit(1);
-    }    
+        return(0);
+    }
+    return(1);
 }

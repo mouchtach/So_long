@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 23:36:47 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/23 00:48:21 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/23 21:39:22 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int player_pass(char **map)
 
     set_player_coord(map, &val);
     flood_fill(map, val.x, val.y);
-    print_map(map);
     return(0);
 
 }

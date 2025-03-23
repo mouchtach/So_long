@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/23 00:48:35 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/23 21:41:36 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 char    **read_map(int map, int count);
 
-void    parsing_arry(char **map,int count);
+
 int     count_lines(int map);
 
 typedef struct t_elements
@@ -39,6 +39,8 @@ typedef struct coord
     int x;
     int y;
 }coord;
+// free
+void     multy_free(char **f1, char **f2);
 
 // parsing
 int     check_val(t_elements val);
@@ -47,7 +49,7 @@ int     shape_check(char **map);
 int     wal_check(char **map,int  count);
 int     valid_characters(char **map);
 int     elements_check(char **map);
-void    parsing_arry(char **map,int  count);
+int     parsing_arry(char **map,int  count);
 
 
 // libft 
