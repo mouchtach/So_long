@@ -1,6 +1,6 @@
 NAME = so_long
 
-SOURCES  = get_next_line.c get_next_line_utils.c read.c so_long.c parsing.c libft.c check_name.c
+SOURCES  = get_next_line.c get_next_line_utils.c read.c so_long.c parsing.c libft.c check_name.c player_pass.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/22 18:31:56 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/03/23 00:48:35 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ typedef struct t_elements
     
 }t_elements;
 
+typedef struct coord
+{
+    int x;
+    int y;
+}coord;
+
 // parsing
 int     check_val(t_elements val);
 int     ft_strlen_newline(const char *s);
@@ -60,5 +66,10 @@ int     ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*get_next_line(int fd);
 
+//player pass
+int player_pass(char **map);
+
+// print
+void    print_map(char **map);
 
 #endif
