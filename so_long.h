@@ -6,14 +6,14 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/04 14:18:21 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/04 14:51:03 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "MLX42/include/MLX42/MLX42.h"
+// # include "MLX42/include/MLX42/MLX42.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
