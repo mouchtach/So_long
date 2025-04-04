@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.c                                            :+:      :+:    :+:   */
+/*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 05:25:28 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/22 18:22:33 by ymouchta         ###   ########.fr       */
+/*   Created: 2025/04/04 12:29:10 by ymouchta          #+#    #+#             */
+/*   Updated: 2025/04/04 14:48:46 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
+// void	load_player(mlx_game *var)
+// {
+// }
 
-	i = 0;
-	if(!s1 || !s2)
-		return (0);
-	while (s1[i] || s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
-}
+// void	load_background(mlx_game *var)
+// {
+// 	int	i;
+// 	int	j;
+
+// 	i = 0;
+// 	while (var->map[i])
+// 	{
+// 		j = 0;
+// 		while (var->map[i][j])
+// 		{
+// 			mlx_load_png();
+// 			mlx
+// 		}
+// 	}
+// }
+// void	load_element(mlx_game *var)
+// {
+// 	int i;
+// }

@@ -1,51 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 21:33:00 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/04 14:05:15 by ymouchta         ###   ########.fr       */
+/*   Created: 2025/03/22 05:25:28 by ymouchta          #+#    #+#             */
+/*   Updated: 2025/04/04 14:17:07 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void	free_map(mlx_game *var)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
-	if (var->map && *var->map)
+	i = 0;
+	if (!s1 || !s2)
+		return (0);
+	while (s1[i] || s2[i])
 	{
-		i = 0;
-		while (var->map[i])
-		{
-			free(var->map[i]);
-			i++;
-		}
-		free(var->map);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-}
-
-void	free_map_cpy(mlx_game *var)
-{
-	int	i;
-
-	if (var->map_cpy && *var->map_cpy)
-	{
-		i = 0;
-		while (var->map_cpy[i])
-		{
-			free(var->map_cpy[i]);
-			i++;
-		}
-		free(var->map_cpy);
-	}
-}
-
-void	multy_free(mlx_game *var)
-{
-	free_map(var);
-	free_map_cpy(var);
+	return (0);
 }

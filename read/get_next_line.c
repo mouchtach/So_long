@@ -6,11 +6,11 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:27:19 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/22 00:44:12 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/04 14:17:04 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static char	*ft_free(char **maloc)
 {
@@ -94,8 +94,8 @@ static char	*ft_get_line(int fd, char **line)
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
-	char		*extra;
+	static char *line;
+	char *extra;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);

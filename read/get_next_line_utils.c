@@ -6,17 +6,17 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:27:06 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/03/21 20:47:16 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/04 14:17:01 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	len;
-	int	i;
-	int	j;
+	int		len;
+	int		i;
+	int		j;
 	char	*p;
 
 	i = 0;
@@ -40,7 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_strdup(const char *s)
 {
-	int	i;
+	int		i;
 	char	*p;
 
 	if (!s)

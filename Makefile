@@ -1,16 +1,26 @@
 NAME = so_long
 
-SOURCES  = get_next_line.c get_next_line_utils.c read.c so_long.c parsing.c libft.c check_name.c player_pass.c free.c
+SOURCES  = check/check_map.c \
+			check/check_name.c \
+			check/check_utils.c \
+			check/check.c \
+			read/get_next_line_utils.c \
+			read/get_next_line.c \
+			read/libft.c \
+			read/read.c \
+			free.c  so_long.c \
+
+LDFLAGS = -L MLX42/build -L /Users/ymouchta/.brew/lib -lmlx42 -lglfw -framework OpenGL -framework AppKit -ldl -pthread -lm
 
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Imlx
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LDFLAGS) -o $(NAME)
 
 %.o: %.c so_long.h map.ber
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -20,5 +30,11 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
+
+mlx:
+	@git clone https://github.com/codam-coding-college/MLX42.git
+build:
+	@cmake MLX42 -B MLX42/build
+	@make -C MLX42/build -j4
 
 re: fclean all 
