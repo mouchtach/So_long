@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/05 17:04:24 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/05 21:47:56 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,20 @@ char				**read_map(int fd_map, mlx_game *var);
 
 
 //----------|   GAME   |-----------//
+
+// move
+void    moves(mlx_game *var);
+void	exit_1(mlx_game *var);
+
+// derects
+void	 up(mlx_game *var, mlx_image_t *player);
+void	 down(mlx_game *var, mlx_image_t *player);
+void	 left(mlx_game *var, mlx_image_t *player);
+void	 right(mlx_game *var, mlx_image_t *player);
+void	 esc(mlx_game *var, mlx_image_t *player);
+
+
+
 // game
 bool	so_long(mlx_game *var);
 
