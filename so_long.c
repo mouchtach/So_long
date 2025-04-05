@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:01:06 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/04 14:10:16 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/05 16:27:00 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,8 @@ int	main(int argc, char **argv)
 		fd_map = open_file(argv[1], &var);
 		var.map = read_map(fd_map, &var);
 		if (!check_map(&var))
-		{
-			free_map(&var);
-			exit(1);
-		}
+			return (free_map(&var), 1);
+		so_long(&var);
 	}
-	// if(!parsing_arry(var.map, count))
-	// {
-	//     multy_free(var.map, NULL);
-	//     exit(1);
-	// }
-	// copy = map_copy(var.map, count);
-	// player_pass(&var, copy);
-	// if(!check_map(copy))
-	// {
-	//     multy_free(var.map, copy);
-	//     exit(1);
-	// }
-	// multy_free(copy, NULL);
-	// so_long(var);
+	return(0);
 }

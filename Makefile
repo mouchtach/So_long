@@ -8,6 +8,8 @@ SOURCES  = check/check_map.c \
 			read/get_next_line.c \
 			read/libft.c \
 			read/read.c \
+			game/load.c \
+			game/game.c \
 			free.c  so_long.c \
 
 LDFLAGS = -L MLX42/build -L /Users/ymouchta/.brew/lib -lmlx42 -lglfw -framework OpenGL -framework AppKit -ldl -pthread -lm

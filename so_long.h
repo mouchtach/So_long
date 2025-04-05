@@ -6,21 +6,31 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/04 14:51:03 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/05 17:04:24 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-// # include "MLX42/include/MLX42/MLX42.h"
+# include "MLX42/include/MLX42/MLX42.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
+
 
 # define BUFFER_SIZE 100
 # define TILE_SIZE 64
+
+# define PATH_BACKGROUND "textures/backround.png"
+# define PATH_PLAYER "textures/player.png"
+# define PATH_WALL "textures/wall.png"
+# define PATH_COIN "textures/coin.png"
+# define PATH_EXIT_1 "textures/open.png"
+# define PATH_EXIT_0 "textures/close.png"
+
 
 typedef struct t_elements
 {
@@ -32,15 +42,40 @@ typedef struct t_elements
 
 }					t_elements;
 
+typedef struct load_png
+{
+	void		*load_background;
+	void		*load_player;
+	void		*load_wall;
+	void		*load_coin;
+	void		*load_exit_0;
+	void		*load_exit_1;
+
+}	load_png;
+
+typedef struct texture
+{
+	char			*background;
+	char			*player;
+	char			*wall;
+	char			*coin;
+	char			*exit_0;
+	char			*exit_1;
+
+}	texture;
+
 typedef struct mlx_game
 {
 	mlx_image_t		*mlx_img;
 	mlx_image_t		*player_img;
 	mlx_texture_t	*texture;
+	texture			png;
+	load_png		load;
+	load_png		imgs;
 	t_elements		element;
 	char			**map_cpy;
 	char			**map;
-	void			*mlx;
+	void			*mlx_init;
 	int				count;
 	int				width;
 	int				height;
@@ -50,19 +85,7 @@ typedef struct mlx_game
 
 }					mlx_game;
 
-typedef struct texture
-{
-	char			*background;
-	char			*player_left;
-	char			*player_right;
-	char			*player_up;
-	char			*player_down;
-	char			*wall;
-	char			*coin;
-	char			*exit_0;
-	char			*exit_1;
 
-}					texture;
 
 //---------|  CHECK  |----------//
 // check_map
@@ -92,9 +115,23 @@ char				*ft_strchr(const char *s, int c);
 char				*get_next_line(int fd);
 // libft
 int					ft_strcmp(char *s1, char *s2);
+void				ft_putstr(char *s);
 // read
 int					count_lines(int map);
 char				**read_map(int fd_map, mlx_game *var);
+
+
+//----------|   GAME   |-----------//
+// game
+bool	so_long(mlx_game *var);
+
+// load
+void	clear_load_png(mlx_game *var);
+void	set_texture(mlx_game *var);
+void	imgs_loading(mlx_game *var);
+void	png_loading(mlx_game *var);
+bool	check_texture_loading(mlx_game *var);
+
 
 // free
 void				free_map(mlx_game *var);
