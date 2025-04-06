@@ -14,7 +14,8 @@ SOURCES  = check/check_map.c \
 			game/derects.c \
 			free.c  so_long.c \
 
-LDFLAGS = -L MLX42/build -L /Users/ymouchta/.brew/lib -lmlx42 -lglfw -framework OpenGL -framework AppKit -ldl -pthread -lm
+# LDFLAGS = -L MLX42/build -L /Users/ymouchta/.brew/lib -lmlx42 -lglfw -framework OpenGL -framework AppKit -ldl -pthread -lm
+LDFLAGS = -L MLX42/build -lmlx42 -lX11 -lXext -lm -pthread -lglfw -ldl
 
 OBJECTS = $(SOURCES:.c=.o)
 

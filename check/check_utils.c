@@ -71,7 +71,7 @@ int	check_cpy(mlx_game *var)
 
 	i = 0;
 	var->map_cpy = map_copy(var);
-	flood_fill(var, var->p_x, var->p_y);
+	flood_fill(var, var->p_y, var->p_x);
 	while (var->map_cpy[i])
 	{
 		j = 0;

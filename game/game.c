@@ -47,19 +47,12 @@ bool	so_long(mlx_game *var)
 		return (ft_putstr("Error in loading png\n"), false);
 	var->mlx_init = mlx_init(var->width * TILE_SIZE, var->height * TILE_SIZE, "so_long", false);
 	imgs_loading(var);
-	clear_load_png(var);
+	clear_texture(var);
 	if(!push_to_window(var))
 		return (ft_putstr("Error in push imgs\n"), false);
-	if (mlx_image_to_window(var->mlx_init, var->imgs.load_player, var->p_y * TILE_SIZE, var->p_x * TILE_SIZE) == -1)
+	if (mlx_image_to_window(var->mlx_init, var->imgs.load_player, var->p_x * TILE_SIZE, var->p_y * TILE_SIZE) == -1)
 		return (ft_putstr("Error in push imgs\n"), false);
-	// printf("x y = %c\n", var->map[var->p_y / TILE_SIZE][var->p_x / TILE_SIZE]);
-	// printf("py = %d \n px = %d\n", var->p_y, var->p_x);
-	// printf("x + 1 = %c\n", var->map[var->p_x][var->p_y + 1]);
-	// printf("x - 1 = %c\n", var->map[var->p_x][var->p_y - 1]);
-	// printf("y - 1 = %c\n", var->map[var->p_x - 1][var->p_y]);
-	// printf("y + 1 = %c\n", var->map[var->p_x + 1][var->p_y]);
 	moves(var);
 	mlx_loop(var->mlx_init);
 	return(true);
-	
 }

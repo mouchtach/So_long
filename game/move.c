@@ -49,26 +49,21 @@ void	func(mlx_key_data_t keydata, void *param)
 
     mlx_game *var = (mlx_game *)param;
     mlx_image_t *player = (mlx_image_t *)(var->imgs.load_player);
-	printf("A = %c\n", var->map[var->p_x ][var->p_y - 1]);
+	// printf("A = %c\n", var->map[var->p_x ][var->p_y - 1]);
 
-	if(keydata.key == MLX_KEY_A  && keydata.action && var->map[var->p_x][var->p_y - 1] != '1')
+	if(keydata.key == MLX_KEY_A  && keydata.action && var->map[var->p_y][var->p_x - 1] != '1')
 		right(var, player);
-	else if(keydata.key == MLX_KEY_D  && keydata.action && var->map[var->p_x][var->p_y + 1] != '1')
+	if(keydata.key == MLX_KEY_D  && keydata.action && var->map[var->p_y][var->p_x + 1] != '1')
 		left(var, player);
-	else if(keydata.key == MLX_KEY_W  && keydata.action && var->map[var->p_x - 1][var->p_y] != '1')
+	if(keydata.key == MLX_KEY_W  && keydata.action && var->map[var->p_y - 1][var->p_x] != '1')
 		up(var, player);
-	else if(keydata.key == MLX_KEY_S  && keydata.action && var->map[var->p_x + 1][var->p_y] != '1')
+	if(keydata.key == MLX_KEY_S  && keydata.action && var->map[var->p_y + 1][var->p_x] != '1')
 		down(var, player);
-	else 
+	if(keydata.key == MLX_KEY_ESCAPE  && keydata.action)
+		mlx_close_window(var->mlx_init); 
 }
 
 void    moves(mlx_game *var)
 {
-	
-
-    // mlx_key_hook(game.mlx, &my_keyhook, &game);
-
     mlx_key_hook(var->mlx_init, &func, var);
-
-    // mlx_loop_hook(var->mlx_init, &function, var);
 }

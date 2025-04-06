@@ -128,11 +128,11 @@ void    moves(mlx_game *var);
 void	exit_1(mlx_game *var);
 
 // derects
-void	 up(mlx_game *var, mlx_image_t *player);
-void	 down(mlx_game *var, mlx_image_t *player);
-void	 left(mlx_game *var, mlx_image_t *player);
-void	 right(mlx_game *var, mlx_image_t *player);
-void	 esc(mlx_game *var, mlx_image_t *player);
+bool	 up(mlx_game *var, mlx_image_t *player);
+bool	 down(mlx_game *var, mlx_image_t *player);
+bool	 left(mlx_game *var, mlx_image_t *player);
+bool	 right(mlx_game *var, mlx_image_t *player);
+bool	 esc(mlx_game *var, mlx_image_t *player);
 
 
 
@@ -140,7 +140,7 @@ void	 esc(mlx_game *var, mlx_image_t *player);
 bool	so_long(mlx_game *var);
 
 // load
-void	clear_load_png(mlx_game *var);
+void	clear_texture(mlx_game *var);
 void	set_texture(mlx_game *var);
 void	imgs_loading(mlx_game *var);
 void	png_loading(mlx_game *var);

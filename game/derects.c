@@ -12,62 +12,80 @@
 
 #include "../so_long.h"
 
-void up(mlx_game *var, mlx_image_t *player)
+bool  take_coin(mlx_game *var, int x, int y)
+{
+    mlx_image_to_window(var->mlx_init, var->imgs.load_background, x * TILE_SIZE, y * TILE_SIZE);
+    var->map[y][x] = '0';
+    mlx_delete_image(var->mlx_init, var->imgs.load_player);
+    var->load.load_player = mlx_load_png(PATH_PLAYER);
+	var->imgs.load_player = mlx_texture_to_image(var->mlx_init, var->load.load_player);
+    mlx_image_to_window(var->mlx_init, var->imgs.load_player, x * TILE_SIZE, y * TILE_SIZE);
+    if(var->element.c > 0)
+        var->element.c -= 1;
+    if(var->element.c == 0)
+        exit_1(var);
+    return (true); 
+}
+
+bool up(mlx_game *var, mlx_image_t *player)
 {
 
-    if (var->map[var->p_x - 1][var->p_y] == 'C')
+    if (var->map[var->p_y - 1][var->p_x] == 'C')
     {
-        var->element.c -= 1;
-        mlx_image_to_window(var->mlx_init, var->imgs.load_background, (var->p_x - 1) * TILE_SIZE, var->p_y * TILE_SIZE);
-        mlx_image_to_window(var->mlx_init, var->imgs.load_player , (var->p_x - 1) * TILE_SIZE, var->p_y * TILE_SIZE);
+        if(!take_coin(var, var->p_x , var->p_y - 1))
+            return (false);
     }
-
-    player->instances[0].y -= TILE_SIZE;
-	var->p_x -= 1;
-    if (var->element.c == 0)
-        exit_1(var);
+    else
+        player->instances[0].y -= TILE_SIZE;
+    var->p_y -= 1;
+    if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
+        mlx_close_window(var->mlx_init);
+    return (true);
     
 }
-void down(mlx_game *var, mlx_image_t *player)
+bool down(mlx_game *var, mlx_image_t *player)
 {
-    if (var->map[var->p_x + 1][var->p_y] == 'C')
+    if (var->map[var->p_y + 1][var->p_x] == 'C')
     {
-        var->element.c -= 1;
-        mlx_image_to_window(var->mlx_init, var->imgs.load_background, (var->p_x ) * TILE_SIZE, var->p_y * TILE_SIZE);
-        mlx_image_to_window(var->mlx_init, var->imgs.load_player , (var->p_x ) * TILE_SIZE, var->p_y * TILE_SIZE);
+        if(!take_coin(var, var->p_x , var->p_y + 1))
+            return (false);
     }
-
-    player->instances[0].y += TILE_SIZE;
-	var->p_x += 1;
-    if (var->element.c == 0)
-        exit_1(var);
-
+    else
+        player->instances[0].y += TILE_SIZE;
+    var->p_y += 1;
+    if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
+        mlx_close_window(var->mlx_init);
+    return (true);
 }
-void left(mlx_game *var, mlx_image_t *player)
+
+bool left(mlx_game *var, mlx_image_t *player)
 {
-    if (var->map[var->p_x][var->p_y + 1] == 'C')
+    if (var->map[var->p_y][var->p_x + 1] == 'C')
     {
-        var->element.c -= 1;
-        mlx_image_to_window(var->mlx_init, var->imgs.load_background, var->p_x * TILE_SIZE, (var->p_y + 1) * TILE_SIZE);
-        mlx_image_to_window(var->mlx_init, var->imgs.load_player , var->p_x * TILE_SIZE, (var->p_y + 1) * TILE_SIZE);
-    }   
-    player->instances[0].x += TILE_SIZE;
-	var->p_y += 1;
-	if (var->element.c == 0)
-        exit_1(var);
-}
-void right(mlx_game *var, mlx_image_t *player)
-{
-    if (var->map[var->p_x][var->p_y - 1] == 'C')
-    {
-        var->element.c -= 1;
-        mlx_image_to_window(var->mlx_init, var->imgs.load_background, var->p_x * TILE_SIZE, (var->p_y - 1) * TILE_SIZE);
-        mlx_image_to_window(var->mlx_init, var->imgs.load_player , var->p_x * TILE_SIZE, (var->p_y - 1) * TILE_SIZE);
+        if(!take_coin(var, var->p_x + 1 , var->p_y))
+           return (false);
     }
-    player->instances[0].x -= TILE_SIZE;
-	var->p_y -= 1;
-    if (var->element.c == 0)
-        exit_1(var);
+    else
+        player->instances[0].x += TILE_SIZE;
+    var->p_x += 1;
+    if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
+        mlx_close_window(var->mlx_init);
+    return (true);
+}
+
+bool  right(mlx_game *var, mlx_image_t *player)
+{
+    if (var->map[var->p_y][var->p_x - 1] == 'C')
+    {
+        if(!take_coin(var, var->p_x - 1 , var->p_y))
+            return (false);
+    }
+    else
+        player->instances[0].x -= TILE_SIZE;
+    var->p_x -= 1;
+    if (var->map[var->p_y][var->p_x]  == 'E' && var->element.c == 0)
+        mlx_close_window(var->mlx_init);
+    return (true);
 }
 // void esc(mlx_game *var, mlx_image_t *player)
 // {

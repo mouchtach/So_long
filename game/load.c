@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-void clear_load_png(mlx_game *var)
+void clear_texture(mlx_game *var)
 {
 	if (var->load.load_background)
 		mlx_delete_texture(var->load.load_background); 
@@ -65,7 +65,7 @@ bool check_texture_loading(mlx_game *var)
 	if (!(var->load.load_background) || !(var->load.load_coin) || !(var->load.load_exit_0) 
 		|| !(var->load.load_exit_1) || !(var->load.load_player) || !(var->load.load_wall))
 	{
-		clear_load_png(var);
+		clear_texture(var);
 		return(false);
 	}
 	else

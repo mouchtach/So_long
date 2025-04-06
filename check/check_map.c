@@ -123,8 +123,8 @@ int	player_pass(mlx_game *var)
 		{
 			if (var->map[i][j] == 'P')
 			{
-				var->p_x = i;
-				var->p_y = j;
+				var->p_x = j;
+				var->p_y = i;
 				break ;
 			}
 			j++;
