@@ -14,10 +14,12 @@
 
 bool  take_coin(mlx_game *var, int x, int y)
 {
+
     mlx_image_to_window(var->mlx_init, var->imgs.load_background, x * TILE_SIZE, y * TILE_SIZE);
     var->map[y][x] = '0';
     mlx_delete_image(var->mlx_init, var->imgs.load_player);
     var->load.load_player = mlx_load_png(PATH_PLAYER);
+    
 	var->imgs.load_player = mlx_texture_to_image(var->mlx_init, var->load.load_player);
     mlx_image_to_window(var->mlx_init, var->imgs.load_player, x * TILE_SIZE, y * TILE_SIZE);
     if(var->element.c > 0)

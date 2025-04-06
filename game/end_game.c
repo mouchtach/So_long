@@ -5,4 +5,5 @@
 void end_game(mlx_game *var)
 {
     
+    
 }

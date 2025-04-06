@@ -1,6 +1,12 @@
 {
     "files.associations": {
         "__functional_03": "c",
-        "functional": "c"
+        "functional": "c",
+        "bit": "c",
+        "unordered_map": "c",
+        "algorithm": "c",
+        "format": "c",
+        "limits": "c",
+        "streambuf": "c"
     }
 }
