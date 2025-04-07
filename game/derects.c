@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 18:41:46 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/07 20:08:59 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:29:08 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ bool	take_coin(t_mlx_game *var, int x, int y)
 	var->load.load_player = mlx_load_png(PATH_PLAYER);
 	var->imgs.load_player = mlx_texture_to_image(var->mlx_init,
 			var->load.load_player);
+	mlx_delete_texture(var->load.load_player);
 	mlx_image_to_window(var->mlx_init, var->imgs.load_player, x * P, y * P);
 	if (var->element.c > 0)
 		var->element.c -= 1;
@@ -41,7 +42,10 @@ bool	up(t_mlx_game *var, mlx_image_t *player)
 	ft_putnbr(var->moves++);
 	write(1, "\n", 1);
 	if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
+	{
+		var->win = true;
 		end_game(var);
+	}
 	return (true);
 }
 
@@ -58,7 +62,10 @@ bool	down(t_mlx_game *var, mlx_image_t *player)
 	ft_putnbr(var->moves++);
 	write(1, "\n", 1);
 	if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
+	{
+		var->win = true;
 		end_game(var);
+	}
 	return (true);
 }
 
@@ -75,7 +82,10 @@ bool	left(t_mlx_game *var, mlx_image_t *player)
 	ft_putnbr(var->moves++);
 	write(1, "\n", 1);
 	if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
+	{
+		var->win = true;
 		end_game(var);
+	}
 	return (true);
 }
 
@@ -92,6 +102,9 @@ bool	right(t_mlx_game *var, mlx_image_t *player)
 	write(1, "\n", 1);
 	var->p_x -= 1;
 	if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
+	{
+		var->win = true;
 		end_game(var);
+	}
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 17:16:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/07 20:08:22 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:27:36 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	exit_1(t_mlx_game *var)
 				var->load.load_exit_1 = mlx_load_png(PATH_EXIT_1);
 				var->imgs.load_exit_1 = mlx_texture_to_image(var->mlx_init,
 						var->load.load_exit_1);
-				mlx_image_to_window(var->mlx_init, var->imgs.load_exit_1, j * P,
-					i * P);
+				mlx_image_to_window(var->mlx_init, 
+					var->imgs.load_exit_1, j * P, i * P);
 				mlx_delete_texture(var->load.load_exit_1);
 				return ;
 			}

@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:01:06 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/07 20:06:39 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:25:57 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	open_file(char *argv, t_mlx_game *var)
 
 	if (!check_name(argv))
 	{
-		printf("name error\n");
+		ft_putstr("name error\n");
 		exit(1);
 	}
 	map = open(argv, O_RDONLY, 0777);
 	if (map == -1)
 	{
-		printf("file not exist \n");
+		ft_putstr("file not exist \n");
 		exit(1);
 	}
 	var->count = count_lines(map);

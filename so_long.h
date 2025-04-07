@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/07 20:25:12 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:33:55 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "MLX42/include/MLX42/MLX42.h"
 # include <fcntl.h>
 # include <stdbool.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -83,6 +82,7 @@ typedef struct mlx_game
 	int				coin;
 	int				p_y;
 	int				p_x;
+	bool			win;
 
 }					t_mlx_game;
 
