@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/05 21:47:56 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:25:12 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 
 # include "MLX42/include/MLX42/MLX42.h"
 # include <fcntl.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdbool.h>
-
 
 # define BUFFER_SIZE 100
-# define TILE_SIZE 64
-# define WIDTH 64
-# define HEIGHT 36
+# define P 64
+# define WIDTH 40
+# define HEIGHT 21
 
 # define PATH_BACKGROUND "textures/backround.png"
 # define PATH_PLAYER "textures/player.png"
@@ -32,7 +31,6 @@
 # define PATH_COIN "textures/coin.png"
 # define PATH_EXIT_1 "textures/open.png"
 # define PATH_EXIT_0 "textures/close.png"
-
 
 typedef struct t_elements
 {
@@ -46,14 +44,14 @@ typedef struct t_elements
 
 typedef struct load_png
 {
-	void		*load_background;
-	void		*load_player;
-	void		*load_wall;
-	void		*load_coin;
-	void		*load_exit_0;
-	void		*load_exit_1;
+	void			*load_background;
+	void			*load_player;
+	void			*load_wall;
+	void			*load_coin;
+	void			*load_exit_0;
+	void			*load_exit_1;
 
-}	load_png;
+}					t_load_png;
 
 typedef struct texture
 {
@@ -64,16 +62,16 @@ typedef struct texture
 	char			*exit_0;
 	char			*exit_1;
 
-}	texture;
+}					t_texture;
 
 typedef struct mlx_game
 {
 	mlx_image_t		*mlx_img;
 	mlx_image_t		*player_img;
 	mlx_texture_t	*texture;
-	texture			png;
-	load_png		load;
-	load_png		imgs;
+	t_texture		png;
+	t_load_png		load;
+	t_load_png		imgs;
 	t_elements		element;
 	char			**map_cpy;
 	char			**map;
@@ -86,27 +84,25 @@ typedef struct mlx_game
 	int				p_y;
 	int				p_x;
 
-}					mlx_game;
-
-
+}					t_mlx_game;
 
 //---------|  CHECK  |----------//
 // check_map
-int					shape_check(mlx_game *var);
-int					wall_check(mlx_game *var);
-int					valid_characters(mlx_game *var);
-int					elements_check(mlx_game *var);
-int					player_pass(mlx_game *var);
+int					shape_check(t_mlx_game *var);
+int					wall_check(t_mlx_game *var);
+int					valid_characters(t_mlx_game *var);
+int					elements_check(t_mlx_game *var);
+int					player_pass(t_mlx_game *var);
 // check_name
 int					check_name(char *name);
 // check_utils
-int					check_val(mlx_game *var);
+int					check_val(t_mlx_game *var);
 int					ft_strlen_newline(const char *s);
-void				flood_fill(mlx_game *var, int x, int y);
-int					check_cpy(mlx_game *var);
-char				**map_copy(mlx_game *var);
+void				flood_fill(t_mlx_game *var, int x, int y);
+int					check_cpy(t_mlx_game *var);
+char				**map_copy(t_mlx_game *var);
 // check
-int					check_map(mlx_game *var);
+int					check_map(t_mlx_game *var);
 
 //----------|   READ   |-----------//
 // get_next_Line_utils
@@ -122,39 +118,35 @@ void				ft_putstr(char *s);
 void				ft_putnbr(int n);
 // read
 int					count_lines(int map);
-char				**read_map(int fd_map, mlx_game *var);
-
+char				**read_map(int fd_map, t_mlx_game *var);
 
 //----------|   GAME   |-----------//
 
 // move
-void    moves(mlx_game *var);
-void	exit_1(mlx_game *var);
+void				moves(t_mlx_game *var);
+void				exit_1(t_mlx_game *var);
 
 // derects
-bool	 up(mlx_game *var, mlx_image_t *player);
-bool	 down(mlx_game *var, mlx_image_t *player);
-bool	 left(mlx_game *var, mlx_image_t *player);
-bool	 right(mlx_game *var, mlx_image_t *player);
-bool	 esc(mlx_game *var, mlx_image_t *player);
-
-
+bool				up(t_mlx_game *var, mlx_image_t *player);
+bool				down(t_mlx_game *var, mlx_image_t *player);
+bool				left(t_mlx_game *var, mlx_image_t *player);
+bool				right(t_mlx_game *var, mlx_image_t *player);
+bool				esc(t_mlx_game *var, mlx_image_t *player);
 
 // game
-void 	end_game(mlx_game *var);
-bool	so_long(mlx_game *var);
+void				end_game(t_mlx_game *var);
+bool				so_long(t_mlx_game *var);
 
 // load
-void	clear_texture(mlx_game *var);
-void	set_texture(mlx_game *var);
-void	imgs_loading(mlx_game *var);
-void	png_loading(mlx_game *var);
-bool	check_texture_loading(mlx_game *var);
-
+void				clear_texture(t_mlx_game *var);
+void				set_texture(t_mlx_game *var);
+void				imgs_loading(t_mlx_game *var);
+void				png_loading(t_mlx_game *var);
+bool				check_texture_loading(t_mlx_game *var);
 
 // free
-void				free_map(mlx_game *var);
-void				free_map_cpy(mlx_game *var);
-void				multy_free(mlx_game *var);
+void				free_map(t_mlx_game *var);
+void				free_map_cpy(t_mlx_game *var);
+void				multy_free(t_mlx_game *var);
 
 #endif

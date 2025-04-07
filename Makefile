@@ -12,10 +12,9 @@ SOURCES  = check/check_map.c \
 			game/game.c \
 			game/move.c \
 			game/derects.c \
-			free.c  so_long.c \
+			game/free.c  so_long.c \
 
 LDFLAGS = -L MLX42/build -L /Users/ymouchta/.brew/lib -lmlx42 -lglfw -framework OpenGL -framework AppKit -ldl -pthread -lm
-# LDFLAGS = -L MLX42/build -lmlx42 -lX11 -lXext -lm -pthread -lglfw -ldl
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -42,4 +41,6 @@ build:
 	@cmake MLX42 -B MLX42/build
 	@make -C MLX42/build -j4
 
-re: fclean all 
+re: fclean all
+
+.PHONY: all clean fclean re mlx build

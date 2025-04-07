@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:07:54 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/04 14:17:11 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:06:39 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ int	count_lines(int map)
 	return (i);
 }
 
-char	**read_map(int fd_map, mlx_game *var)
+char	**read_map(int fd_map, t_mlx_game *var)
 {
-	char **arry;
-	char *line;
-	int i = 0;
+	char	**arry;
+	char	*line;
+	int		i;
 
+	i = 0;
 	arry = malloc(sizeof(char *) * (var->count + 1));
 	while (i < var->count)
 	{

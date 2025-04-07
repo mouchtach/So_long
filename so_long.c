@@ -6,13 +6,13 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:01:06 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/05 16:27:00 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:06:39 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	open_file(char *argv, mlx_game *var)
+int	open_file(char *argv, t_mlx_game *var)
 {
 	int	map;
 
@@ -35,8 +35,8 @@ int	open_file(char *argv, mlx_game *var)
 
 int	main(int argc, char **argv)
 {
-	mlx_game var;
-	int fd_map;
+	t_mlx_game	var;
+	int			fd_map;
 
 	if (argc == 2)
 	{
@@ -44,8 +44,8 @@ int	main(int argc, char **argv)
 		var.map = read_map(fd_map, &var);
 		if (!check_map(&var))
 			return (free_map(&var), 1);
-		if(!so_long(&var))
+		if (!so_long(&var))
 			return (free_map(&var), 1);
 	}
-	return(0);
+	return (0);
 }

@@ -44,7 +44,7 @@ void	ft_putstr(char *s)
 
 void	ft_putnbr(int n)
 {
-	char c;
+	char	c;
 
 	if (n == -2147483648)
 	{

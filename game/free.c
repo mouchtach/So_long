@@ -6,13 +6,13 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:33:00 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/04 14:05:15 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:09:08 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void	free_map(mlx_game *var)
+void	free_map(t_mlx_game *var)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ void	free_map(mlx_game *var)
 	}
 }
 
-void	free_map_cpy(mlx_game *var)
+void	free_map_cpy(t_mlx_game *var)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ void	free_map_cpy(mlx_game *var)
 	}
 }
 
-void	multy_free(mlx_game *var)
+void	multy_free(t_mlx_game *var)
 {
 	free_map(var);
 	free_map_cpy(var);

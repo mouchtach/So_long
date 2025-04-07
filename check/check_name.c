@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 18:05:25 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/05 15:57:39 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:45:00 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_name(char *name)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (name[i])

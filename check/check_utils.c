@@ -6,13 +6,13 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:55:32 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/04 14:16:46 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:06:39 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	check_val(mlx_game *var)
+int	check_val(t_mlx_game *var)
 {
 	if (var->element.c < 1)
 		return (1);
@@ -36,7 +36,7 @@ int	ft_strlen_newline(const char *s)
 	return (i);
 }
 
-void	flood_fill(mlx_game *var, int x, int y)
+void	flood_fill(t_mlx_game *var, int x, int y)
 {
 	if (var->map_cpy[x][y + 1] == '0' || var->map_cpy[x][y + 1] == 'P'
 		|| var->map_cpy[x][y + 1] == 'E' || var->map_cpy[x][y + 1] == 'C')
@@ -64,7 +64,7 @@ void	flood_fill(mlx_game *var, int x, int y)
 	}
 }
 
-int	check_cpy(mlx_game *var)
+int	check_cpy(t_mlx_game *var)
 {
 	int	i;
 	int	j;
@@ -90,16 +90,15 @@ int	check_cpy(mlx_game *var)
 	return (1);
 }
 
-char	**map_copy(mlx_game *var)
+char	**map_copy(t_mlx_game *var)
 {
-	char **cpy;
-	int i;
-	i = 0;
+	char	**cpy;
+	int		i;
 
+	i = 0;
 	cpy = malloc(sizeof(char *) * (var->count + 1));
 	if (!cpy)
 		return (NULL);
-
 	while (var->map[i])
 	{
 		cpy[i] = ft_strdup(var->map[i]);

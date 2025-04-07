@@ -6,13 +6,13 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:54:31 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/04 14:16:34 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:06:39 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	shape_check(mlx_game *var)
+int	shape_check(t_mlx_game *var)
 {
 	int	size;
 	int	i;
@@ -29,7 +29,7 @@ int	shape_check(mlx_game *var)
 	return (0);
 }
 
-int	wall_check(mlx_game *var)
+int	wall_check(t_mlx_game *var)
 {
 	int	i;
 
@@ -58,7 +58,7 @@ int	wall_check(mlx_game *var)
 	return (0);
 }
 
-int	valid_characters(mlx_game *var)
+int	valid_characters(t_mlx_game *var)
 {
 	int	i;
 	int	j;
@@ -83,7 +83,7 @@ int	valid_characters(mlx_game *var)
 	return (0);
 }
 
-int	elements_check(mlx_game *var)
+int	elements_check(t_mlx_game *var)
 {
 	var->element.c = 0;
 	var->element.p = 0;
@@ -110,7 +110,7 @@ int	elements_check(mlx_game *var)
 		return (0);
 }
 
-int	player_pass(mlx_game *var)
+int	player_pass(t_mlx_game *var)
 {
 	int	i;
 	int	j;
