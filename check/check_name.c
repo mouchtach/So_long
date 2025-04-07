@@ -22,7 +22,7 @@ int	check_name(char *name)
 	if (i < 5)
 		return (0);
 	if (name[i - 1] != 'r' || name[i - 2] != 'e' || name[i - 3] != 'b' 
-		|| name[i - 4] != '.')
+		|| name[i - 4] != '.' || name[i - 5] == '/')
 		return (0);
 	return (1);
 }

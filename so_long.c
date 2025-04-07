@@ -44,7 +44,8 @@ int	main(int argc, char **argv)
 		var.map = read_map(fd_map, &var);
 		if (!check_map(&var))
 			return (free_map(&var), 1);
-		so_long(&var);
+		if(!so_long(&var))
+			return (free_map(&var), 1);
 	}
 	return(0);
 }

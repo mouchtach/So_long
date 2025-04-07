@@ -26,6 +26,8 @@ int	check_map(mlx_game *var)
 	{
 		var->width = ft_strlen_newline(var->map[0]);
 		var->height = var->count;
+		if(var->width > WIDTH || var->height > HEIGHT)
+			return (ft_putstr("Size mape to long\n"), 0);
 		return (1);
 	}
 }

@@ -23,6 +23,8 @@
 
 # define BUFFER_SIZE 100
 # define TILE_SIZE 64
+# define WIDTH 30
+# define HEIGHT 16
 
 # define PATH_BACKGROUND "textures/backround.png"
 # define PATH_PLAYER "textures/player.png"
@@ -76,6 +78,7 @@ typedef struct mlx_game
 	char			**map_cpy;
 	char			**map;
 	void			*mlx_init;
+	int				moves;
 	int				count;
 	int				width;
 	int				height;
@@ -116,6 +119,7 @@ char				*get_next_line(int fd);
 // libft
 int					ft_strcmp(char *s1, char *s2);
 void				ft_putstr(char *s);
+void				ft_putnbr(int n);
 // read
 int					count_lines(int map);
 char				**read_map(int fd_map, mlx_game *var);
@@ -137,6 +141,7 @@ bool	 esc(mlx_game *var, mlx_image_t *player);
 
 
 // game
+void 	end_game(mlx_game *var);
 bool	so_long(mlx_game *var);
 
 // load

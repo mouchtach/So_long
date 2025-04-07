@@ -40,8 +40,10 @@ bool up(mlx_game *var, mlx_image_t *player)
     else
         player->instances[0].y -= TILE_SIZE;
     var->p_y -= 1;
+    ft_putnbr(var->moves++);
+    write(1, "\n", 1);
     if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
-        mlx_close_window(var->mlx_init);
+        end_game(var);
     return (true);
     
 }
@@ -55,8 +57,10 @@ bool down(mlx_game *var, mlx_image_t *player)
     else
         player->instances[0].y += TILE_SIZE;
     var->p_y += 1;
+    ft_putnbr(var->moves++);
+    write(1, "\n", 1);
     if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
-        mlx_close_window(var->mlx_init);
+        end_game(var);
     return (true);
 }
 
@@ -70,8 +74,10 @@ bool left(mlx_game *var, mlx_image_t *player)
     else
         player->instances[0].x += TILE_SIZE;
     var->p_x += 1;
+    ft_putnbr(var->moves++);
+    write(1, "\n", 1);
     if (var->map[var->p_y][var->p_x] == 'E' && var->element.c == 0)
-        mlx_close_window(var->mlx_init);
+        end_game(var);
     return (true);
 }
 
@@ -84,12 +90,10 @@ bool  right(mlx_game *var, mlx_image_t *player)
     }
     else
         player->instances[0].x -= TILE_SIZE;
+    ft_putnbr(var->moves++);
+    write(1, "\n", 1);
     var->p_x -= 1;
     if (var->map[var->p_y][var->p_x]  == 'E' && var->element.c == 0)
-        mlx_close_window(var->mlx_init);
+        end_game(var);
     return (true);
 }
-// void esc(mlx_game *var, mlx_image_t *player)
-// {
-
-// }

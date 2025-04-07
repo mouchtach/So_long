@@ -46,10 +46,8 @@ void	exit_1(mlx_game *var)
 
 void	func(mlx_key_data_t keydata, void *param)
 {
-
     mlx_game *var = (mlx_game *)param;
     mlx_image_t *player = (mlx_image_t *)(var->imgs.load_player);
-	// printf("A = %c\n", var->map[var->p_x ][var->p_y - 1]);
 
 	if(keydata.key == MLX_KEY_A  && keydata.action && var->map[var->p_y][var->p_x - 1] != '1')
 		right(var, player);
@@ -60,7 +58,7 @@ void	func(mlx_key_data_t keydata, void *param)
 	if(keydata.key == MLX_KEY_S  && keydata.action && var->map[var->p_y + 1][var->p_x] != '1')
 		down(var, player);
 	if(keydata.key == MLX_KEY_ESCAPE  && keydata.action)
-		mlx_close_window(var->mlx_init); 
+		end_game(var);
 }
 
 void    moves(mlx_game *var)

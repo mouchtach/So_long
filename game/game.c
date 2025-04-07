@@ -12,6 +12,13 @@
 
 #include "../so_long.h"
 
+void end_game(mlx_game *var)
+{
+    free_map(var);
+	ft_putstr("End Game !\n");
+    mlx_close_window(var->mlx_init);  
+}
+
 bool	push_to_window(mlx_game *var)
 {
 	int i;
@@ -52,6 +59,8 @@ bool	so_long(mlx_game *var)
 		return (ft_putstr("Error in push imgs\n"), false);
 	if (mlx_image_to_window(var->mlx_init, var->imgs.load_player, var->p_x * TILE_SIZE, var->p_y * TILE_SIZE) == -1)
 		return (ft_putstr("Error in push imgs\n"), false);
+	ft_putstr("Start Game !\n");
+	var->moves = 1;
 	moves(var);
 	mlx_loop(var->mlx_init);
 	return(true);
