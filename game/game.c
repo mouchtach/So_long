@@ -6,11 +6,22 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 09:45:47 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/07 21:35:56 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 22:18:19 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+void	end_game(t_mlx_game *var)
+{
+	if (var->win)
+		ft_putstr("You win !\n");
+	else
+		ft_putstr("End Game !\n");
+	free_map(var);
+	mlx_terminate(var->mlx_init);
+	exit(0);
+}
 
 bool	my_image_to_window(t_mlx_game *var, int i, int j)
 {
@@ -30,16 +41,6 @@ bool	my_image_to_window(t_mlx_game *var, int i, int j)
 				* P) == -1)
 			return (false);
 	return (true);
-}
-
-void	end_game(t_mlx_game *var)
-{
-	free_map(var);
-	if (var->win)
-		ft_putstr("You win !\n");
-	else
-		ft_putstr("End Game !\n");
-	mlx_close_window(var->mlx_init);
 }
 
 bool	push_to_window(t_mlx_game *var)
@@ -79,5 +80,6 @@ bool	so_long(t_mlx_game *var)
 	var->win = false;
 	moves(var);
 	mlx_loop(var->mlx_init);
+	end_game(var);
 	return (true);
 }

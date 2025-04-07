@@ -6,7 +6,7 @@
 /*   By: ymouchta <ymouchta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 20:10:20 by ymouchta          #+#    #+#             */
-/*   Updated: 2025/04/07 21:33:55 by ymouchta         ###   ########.fr       */
+/*   Updated: 2025/04/07 22:42:29 by ymouchta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,6 @@ bool				up(t_mlx_game *var, mlx_image_t *player);
 bool				down(t_mlx_game *var, mlx_image_t *player);
 bool				left(t_mlx_game *var, mlx_image_t *player);
 bool				right(t_mlx_game *var, mlx_image_t *player);
-bool				esc(t_mlx_game *var, mlx_image_t *player);
 
 // game
 void				end_game(t_mlx_game *var);
