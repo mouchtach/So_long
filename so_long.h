@@ -23,8 +23,8 @@
 
 # define BUFFER_SIZE 100
 # define TILE_SIZE 64
-# define WIDTH 30
-# define HEIGHT 16
+# define WIDTH 64
+# define HEIGHT 36
 
 # define PATH_BACKGROUND "textures/backround.png"
 # define PATH_PLAYER "textures/player.png"
