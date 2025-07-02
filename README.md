@@ -1,5 +1,5 @@
 
-# so_long
+# So_long
 
 **so_long** is a 2D game developed as part of the 42 School curriculum. Utilizing the MiniLibX graphics library, the game challenges players to navigate a maze, collect items, and reach the exit.
 
